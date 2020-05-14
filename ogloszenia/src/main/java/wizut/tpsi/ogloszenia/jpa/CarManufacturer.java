@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wizut.tpsi.ogloszenia;
+package wizut.tpsi.ogloszenia.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-
 @Entity
-@Table(name = "car_model")
-public class CarModel {
-    
+@Table(name = "car_manufacturer")
+public class CarManufacturer {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -25,10 +23,6 @@ public class CarModel {
     @Size(max=30)
     @Column(name = "name")
     private String name;
-    
-    private CarManufacturer manufacturer;
-    
-    
 
     public Integer getId() {
         return id;
@@ -45,15 +39,5 @@ public class CarModel {
     public void setName(String name) {
         this.name = name;
     }
-
-    public CarManufacturer getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(CarManufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-    
-    
     
 }
