@@ -25,6 +25,10 @@ public class CarModel {
     @Size(max=30)
     @Column(name = "name")
     private String name;
+    
+    private CarManufacturer manufacturer;
+    
+    
 
     public Integer getId() {
         return id;
@@ -41,5 +45,15 @@ public class CarModel {
     public void setName(String name) {
         this.name = name;
     }
+
+    public CarManufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(CarManufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+    
+    
     
 }
