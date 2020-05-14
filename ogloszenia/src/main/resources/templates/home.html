@@ -13,9 +13,27 @@ and open the template in the editor.
     <body>
         <h2> FURKA4U </h2>
         <br/>
-        <div th:each="Produkt: ${Produkt}">
-            <h2 th:text="${Produkt.name}">Produkt </h2>
-        </div>
+        <table border =\"1\" align = \"center\">
+            <tr>
+                <th>ID</th>
+                <th>Model samochodu</th>
+            </tr>
+            <tr th:each="Car : ${cModel}">
+                <td th:text="${Car.id}">Car ID </td>
+                <td th:text="${Car.name}">Car Name</td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table border =\"1\" align = \"center\">
+            <tr>
+                <th>ID</th>
+                <th>Producent</th>
+            </tr>
+            <tr th:each="Manufacturer : ${cManufacturer}">
+                <td th:text="${Manufacturer.id}">Manufacturer ID</td>
+                <td th:text="${Manufacturer.name}">Manufacturer Name</td>
+            </tr>
+        </table>
     </body>
 </html>
 

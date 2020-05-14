@@ -21,8 +21,8 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model) throws SQLException {
 
-        model.addAttribute("Producent", service.getCarManufacturer(2));
-        model.addAttribute("Produkt", service.getModel(3));
+        model.addAttribute("cManufacturer", service.getCarManufacturer(2));
+        model.addAttribute("cModel", service.getModel(3));
 
         return "home";
     }
