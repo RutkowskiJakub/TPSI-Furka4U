@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TPSI Lab 10</title>
+        <meta charset="UTF-8" />  
+    </head>
+    <body>
+        <h2> FURKA4U </h2>
+        <br/>
+        <div th:each="Produkt: ${Produkt}">
+            <h2 th:text="${Produkt.name}">Produkt </h2>
+        </div>
+    </body>
+</html>
+
+
+
+
+<!--    <body>
+        <form action="/newpost" method="POST">
+            Tytuł: <input type="text" name="title" size="150" /><br />
+            Treść:
+            <textarea name="content" cols="150" rows="5"></textarea><br />
+            <input type="submit" value="Dodaj wpis" />
+        </form>
+        <div th:each="Lista: ${Lista}">
+            <h2 th:text="${Lista.title}">Tytuł</h2>            
+            <p th:text="${Lista.content}">Content</p>
+            <a th:href="delete_ + ${Lista.id}">Usuń</a>
+        </div>
+    </body>
+</html>-->
