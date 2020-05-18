@@ -59,4 +59,13 @@ public class OffersService {
         List<CarModel> result = query.getResultList();
         return result;
     }
+    
+    public List<CarModel> getCarModels(int manufacturerId){
+        String jpql = "select cm from CarModel cm where cm.manufacturer.id = :id order by cm.name";
+        TypedQuery<CarModel> query = em.createQuery(jpql, CarModel.class);
+        query.setParameter("id", manufacturerId);
+        return query.getResultList();
+    }
+    
+    
 }
