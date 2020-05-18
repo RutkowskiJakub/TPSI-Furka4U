@@ -57,6 +57,12 @@ public class HomeController {
         List<Offer> offersByModel = offersService.getOffersByModel(13);
         model.addAttribute("offersByModel", offersByModel);
         
+//        List<Offer> offersByManufacturer = offersService.getOffersByManufacturer(3);
+//        model.addAttribute("offersByManufacturer", offersByManufacturer);
+
+        List<Offer> offersById = offersService.getOffer(3);
+        model.addAttribute("offersById", offersById);
+        
         return "offersList";
         
         

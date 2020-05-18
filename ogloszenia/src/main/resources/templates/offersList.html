@@ -19,9 +19,13 @@
             <h1> --------- </h1>
             <p th:each="cm2 : ${carModels2}" th:text="${cm2.name}"></p>
             <h1> --------- </h1>
-            <p th:each="o : ${offers}" th:text="${o.title}"></p>
+            <p th:each="of : ${offers}" th:text="${of.title}"></p>
             <h1> --------- </h1>
-            <p th:each="o : ${offersByModel}" th:text="${o.title}"></p>
+            <p th:each="of : ${offersByModel}" th:text="${of.title}"></p>
+            <h1> --------- </h1>
+<!--            <p th:each="of : ${offersByManufacturer}" th:text="${of.title}"></p>
+            <h1> --------- </h1>-->
+            <p th:each="of : ${offersById}" th:text="${of.title}"></p>
             <h1> --------- </h1>
         </section>
     </body>
