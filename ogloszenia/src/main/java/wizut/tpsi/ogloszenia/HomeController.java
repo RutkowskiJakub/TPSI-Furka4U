@@ -6,25 +6,34 @@
 package wizut.tpsi.ogloszenia;
 
 import java.sql.SQLException;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import wizut.tpsi.ogloszenia.jpa.CarManufacturer;
 import wizut.tpsi.ogloszenia.services.OffersService;
 
 @Controller
 public class HomeController {
     
     @Autowired
-    OffersService service;
+    OffersService offersService;
     
-    @RequestMapping("/")
-    public String home(Model model) throws SQLException {
-
-        model.addAttribute("cManufacturer", service.getCarManufacturer(2));
-        model.addAttribute("cModel", service.getModel(3));
-
-        return "home";
-    }
+//    @RequestMapping("/")
+//    public String home(Model model) throws SQLException {
+//
+//        model.addAttribute("cManufacturer", offersService.getCarManufacturer(2));
+//        model.addAttribute("cModel", offersService.getModel(3));
+//
+//        return "home";
+//    }
     
+    @GetMapping("/")
+    public String home(Model model) {
+        List<CarManufacturer> carManufacturers = offersService.getCarManufacturers();
+        model.addAttribute("carManufacturers", carManufacturers);
+        return "offersList";
+}
 }
