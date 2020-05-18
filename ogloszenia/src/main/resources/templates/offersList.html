@@ -10,6 +10,13 @@
     <body>
         <section layout:fragment="content">
             <p th:each="cm : ${carManufacturers}" th:text="${cm.name}"></p>
+            <h1> --------- </h1>
+            <p th:each="cm : ${carModels}" th:text="${cm.name}"></p>
+            <h1> --------- </h1>
+            <p th:each="cm : ${bodyStyles}" th:text="${cm.name}"></p>
+            <h1> --------- </h1>
+            <p th:each="cm : ${fuelTypes}" th:text="${cm.name}"></p>
+            <h1> --------- </h1>
         </section>
     </body>
 </html>
