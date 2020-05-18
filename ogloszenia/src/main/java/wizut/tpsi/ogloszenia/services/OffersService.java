@@ -74,4 +74,11 @@ public class OffersService {
         List<Offer> result = query.getResultList();
         return result;  
     }
+    
+    public List<Offer> getOffersByModel(int modelId){
+        String jpql = "select o from Offer o where o.model.id = :id order by o.id";
+        TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
+        query.setParameter("id", modelId);
+        return query.getResultList();
+    }
 }
