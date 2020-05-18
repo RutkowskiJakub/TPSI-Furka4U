@@ -23,8 +23,10 @@
             <h1> --------- </h1>
             <p th:each="of : ${offersByModel}" th:text="${of.title}"></p>
             <h1> --------- </h1>
-<!--            <p th:each="of : ${offersByManufacturer}" th:text="${of.title}"></p>
-            <h1> --------- </h1>-->
+            <!------------------------>
+            <p th:each="of : ${offersByManufacturer}" th:text="${of.title}"></p>
+            <h1> --------- </h1>
+            <!------------------------>
             <p th:each="of : ${offersById}" th:text="${of.title}"></p>
             <h1> --------- </h1>
         </section>

@@ -82,14 +82,16 @@ public class OffersService {
         return query.getResultList();
     }
     
+    ////////////////////////////////////////////////////////////
         //DO NAPRAWIENIA
     public List<Offer> getOffersByManufacturer(int manufacturerId){
         //String jpql = "select of from Offer of where CarModel.manufacturer.id = :id order by of.id";
-        String jpql = "SELECT of FROM Offer of JOIN of.CarModel WHERE of.manufacturer.id = :id";
+        String jpql = "SELECT of, cm FROM Offer of, CarModel cm WHERE cm.manfucaturer.id = 3";
         TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
-        query.setParameter("id", manufacturerId);
+        //query.setParameter("id", manufacturerId);
         return query.getResultList();
     }
+    ///////////////////////////////////////////////////////////
     
     public List<Offer> getOffer(int id){
         String jpql = "select o from Offer o where o.id = :id order by o.id";
