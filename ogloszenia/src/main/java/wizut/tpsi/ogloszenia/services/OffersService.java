@@ -14,6 +14,7 @@ import wizut.tpsi.ogloszenia.jpa.BodyStyle;
 import wizut.tpsi.ogloszenia.jpa.CarManufacturer;
 import wizut.tpsi.ogloszenia.jpa.CarModel;
 import wizut.tpsi.ogloszenia.jpa.FuelType;
+import wizut.tpsi.ogloszenia.jpa.Offer;
 
 
 
@@ -40,14 +41,14 @@ public class OffersService {
     }
     
     public List<BodyStyle> getBodyStyles(){
-        String jpql = "select cm from BodyStyle cm order by cm.name";
+        String jpql = "select bs from BodyStyle bs order by bs.name";
         TypedQuery<BodyStyle> query = em.createQuery(jpql, BodyStyle.class);
         List<BodyStyle> result = query.getResultList();
         return result;
     }
     
     public List<FuelType> getFuelTypes(){
-        String jpql = "select cm from FuelType cm order by cm.name";
+        String jpql = "select ft from FuelType ft order by ft.name";
         TypedQuery<FuelType> query = em.createQuery(jpql, FuelType.class);
         List<FuelType> result = query.getResultList();
         return result;
@@ -67,5 +68,10 @@ public class OffersService {
         return query.getResultList();
     }
     
-    
+    public List<Offer> getOffers(){
+        String jpql = "select o from Offer o order by o.id";
+        TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
+        List<Offer> result = query.getResultList();
+        return result;  
+    }
 }

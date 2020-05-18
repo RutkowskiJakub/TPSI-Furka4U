@@ -13,9 +13,13 @@
             <h1> --------- </h1>
             <p th:each="cm : ${carModels}" th:text="${cm.name}"></p>
             <h1> --------- </h1>
-            <p th:each="cm : ${bodyStyles}" th:text="${cm.name}"></p>
+            <p th:each="bs : ${bodyStyles}" th:text="${bs.name}"></p>
             <h1> --------- </h1>
-            <p th:each="cm : ${fuelTypes}" th:text="${cm.name}"></p>
+            <p th:each="ft : ${fuelTypes}" th:text="${ft.name}"></p>
+            <h1> --------- </h1>
+            <p th:each="cm2 : ${carModels2}" th:text="${cm2.name}"></p>
+            <h1> --------- </h1>
+            <p th:each="o : ${offers}" th:text="${o.title}"></p>
             <h1> --------- </h1>
         </section>
     </body>

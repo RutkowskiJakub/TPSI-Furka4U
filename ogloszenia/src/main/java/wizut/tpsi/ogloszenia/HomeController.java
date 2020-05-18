@@ -16,6 +16,7 @@ import wizut.tpsi.ogloszenia.jpa.BodyStyle;
 import wizut.tpsi.ogloszenia.jpa.CarManufacturer;
 import wizut.tpsi.ogloszenia.jpa.CarModel;
 import wizut.tpsi.ogloszenia.jpa.FuelType;
+import wizut.tpsi.ogloszenia.jpa.Offer;
 import wizut.tpsi.ogloszenia.services.OffersService;
 
 @Controller
@@ -46,6 +47,12 @@ public class HomeController {
         
         List<FuelType> fuelTypes = offersService.getFuelTypes();
         model.addAttribute("fuelTypes", fuelTypes);
+        
+        List<CarModel> carModels2 = offersService.getCarModels(2);
+        model.addAttribute("carModels2", carModels2);
+        
+        List<Offer> offers = offersService.getOffers();
+        model.addAttribute("offers", offers);
         
         return "offersList";
         
