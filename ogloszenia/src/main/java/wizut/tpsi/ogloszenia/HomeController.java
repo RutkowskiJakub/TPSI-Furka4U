@@ -42,14 +42,34 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model, OfferFilter offerFilter) {
         List<CarManufacturer> carManufacturers = offersService.getCarManufacturers();
-        List<CarModel> carModels = offersService.getCarModels();
+        //List<CarModel> carModels = offersService.getCarModels();
+        List<CarModel> carModels;
         //List<Offer> offers = offersService.getOffers();
         List<Offer> offers;
+        System.out.println("test");
+//        if(offerFilter.getManufacturerId() == null && offerFilter.getModelId() == null){
+//            offers = offersService.getOffers();
+//            carModels = null;
+//        }
         
-        if(offerFilter.getManufacturerId()!=null){
+        
+        if (offerFilter.getManufacturerId() != null && offerFilter.getModelId() == null){
             offers = offersService.getOffersByManufacturer(offerFilter.getManufacturerId());
-        } else {
+            carModels = offersService.getCarModels(offerFilter.getManufacturerId());
+            System.out.println("Jestem w 1 ifie");
+        } 
+        
+        else if (offerFilter.getManufacturerId() != null && offerFilter.getModelId() != null){
+            offers = offersService.getOffersByModel(offerFilter.getModelId());
+            System.out.println("offerFilter.getModelId() = " + offerFilter.getModelId());
+            carModels = offersService.getCarModels(offerFilter.getManufacturerId());
+            System.out.println("Jestem w 2 ifie");
+        }
+        
+        else {
             offers = offersService.getOffers();
+            carModels = null;
+            System.out.println("Jestem w elsie");
         }
          
         model.addAttribute("carManufacturers", carManufacturers);

@@ -37,8 +37,9 @@
                                         <option value="">Marka</option>
                                         <option th:each="manufacturer : ${carManufacturers}" th:value="${manufacturer.id}" th:text="${manufacturer.name}"></option>
                                     </select>
-                                    <select class="form-control">
+                                    <select class="form-control" th:field="*{modelId}">
                                         <option value="">Model</option>
+                                        <option th:each="model : ${carModels}" th:value="${model.id}" th:text="${model.name}"></option>
                                     </select>
 
                                     <input type="submit" value="Filtruj" class="form-control"/>
