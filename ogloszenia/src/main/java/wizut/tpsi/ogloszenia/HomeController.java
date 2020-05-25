@@ -7,11 +7,14 @@ package wizut.tpsi.ogloszenia;
 
 import java.sql.SQLException;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import wizut.tpsi.ogloszenia.jpa.BodyStyle;
 import wizut.tpsi.ogloszenia.jpa.CarManufacturer;
@@ -91,5 +94,22 @@ public class HomeController {
         model.addAttribute("bodyStyles", bodyStyles);
         model.addAttribute("fuelTypes", fuelTypes);
         return "offerForm";
+    }
+    
+    @PostMapping("/newoffer")
+    public String saveNewOffer(Model model, @Valid Offer offer, BindingResult binding){
+        if(binding.hasErrors()){
+            List<CarModel> carModels = offersService.getCarModels();
+            List<BodyStyle> bodyStyles = offersService.getBodyStyles();
+            List<FuelType> fuelTypes = offersService.getFuelTypes();
+            
+            model.addAttribute("carModels", carModels);
+            model.addAttribute("bodyStyles", bodyStyles);
+            model.addAttribute("fuelTypes", fuelTypes);
+            return "offerForm";
+        }
+        offer = offersService.createOffer(offer);
+        
+        return "redirect:/offer/" + offer.getId();
     }
 }
