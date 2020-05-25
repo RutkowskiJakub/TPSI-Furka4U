@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
@@ -26,46 +29,65 @@ public class Offer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
+    
+    @Size(max = 255, min = 5)
+    @NotNull
     @Size(max = 255)
     @Column(name = "title")
     private String title;
 
- @Column(name = "year")
+    @Min(1900)
+    @NotNull
+    @Column(name = "year")
     private Integer year;
 
+    @Min(0)
+    @NotNull
     @Column(name = "mileage")
     private Integer mileage;
 
+    @Min(0)
     @Column(name = "engine_size")
     private BigDecimal engineSize;
 
+    @Min(0)
     @Column(name = "engine_power")
     private Integer enginePower;
-
+    
+    @Min(1)
+    @Max(5)
+    @NotNull
     @Column(name = "doors")
     private Integer doors;
 
+    @Size(max = 30, min = 3)
+    @NotNull
     @Size(max = 30)
     @Column(name = "colour")
     private String colour;
 
+    @NotNull
     @Lob
-    @Size(max = 65535)
+    @Size(max = 65535, min = 5)
     @Column(name = "description")
     private String description;
 
+    @Min(0)
+    @NotNull
     @Column(name = "price")
     private Integer price;
 
+    @NotNull
     @JoinColumn(name = "model_id", referencedColumnName = "id")
     @ManyToOne
     private CarModel model;
 
+    @NotNull
     @JoinColumn(name = "body_style_id", referencedColumnName = "id")
     @ManyToOne
     private BodyStyle bodyStyle;
 
+    @NotNull
     @JoinColumn(name = "fuel_type_id", referencedColumnName = "id")
     @ManyToOne
     private FuelType fuelType;
