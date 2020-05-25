@@ -93,14 +93,16 @@ public class OffersService {
     }
     ///////////////////////////////////////////////////////////
     
-    public List<Offer> getOffer(int id){
-        String jpql = "select o from Offer o where o.id = :id order by o.id";
-        TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
-        query.setParameter("id", id);
-        List<Offer> result = query.getResultList();
-        return result;  
+//    public List<Offer> getOffer(int id){
+//        String jpql = "select o from Offer o where o.id = :id order by o.id";
+//        TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
+//        query.setParameter("id", id);
+//        List<Offer> result = query.getResultList();
+//        return result;  
+//    }
+    public Offer getOffer(int id){
+        return em.find(Offer.class, id);
     }
-
         
         
 }
