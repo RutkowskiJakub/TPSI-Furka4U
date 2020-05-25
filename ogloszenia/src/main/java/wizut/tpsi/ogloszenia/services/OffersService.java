@@ -86,9 +86,9 @@ public class OffersService {
         //DO NAPRAWIENIA
     public List<Offer> getOffersByManufacturer(int manufacturerId){
         //String jpql = "select of from Offer of where CarModel.manufacturer.id = :id order by of.id";
-        String jpql = "SELECT of, cm FROM Offer of, CarModel cm WHERE cm.manfucaturer.id = 3";
+        String jpql = "select cm from Offer cm where cm.model.manufacturer.id = :id";
         TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
-        //query.setParameter("id", manufacturerId);
+        query.setParameter("id", manufacturerId);
         return query.getResultList();
     }
     ///////////////////////////////////////////////////////////
