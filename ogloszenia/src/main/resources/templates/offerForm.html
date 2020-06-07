@@ -11,7 +11,7 @@
         <section layout:fragment="content">
             <h1 th:text="${header}"></h1>
             
-            <form action="${action}" method="POST" class="form-horizontal" th:object="${offer}">
+            <form th:action="${action}" method="POST" class="form-horizontal" th:object="${offer}">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Tytuł:</label>
                     <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{title}')?'has-error':''}">

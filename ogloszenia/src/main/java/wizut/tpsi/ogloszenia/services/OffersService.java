@@ -119,4 +119,7 @@ public class OffersService {
     }
         
         
+    public Offer saveOffer(Offer offer){
+        return em.merge(offer);
+    }
 }
