@@ -140,4 +140,12 @@ public class HomeController {
         model.addAttribute("offer", offer);
         return "deleteOffer";
     }
+    
+    @GetMapping("/editoffer/{id}")
+    public String editOffer(Model model, @PathVariable("id") Integer id){
+        return "offerForm";
+    }
+    
+    
+    
 }
