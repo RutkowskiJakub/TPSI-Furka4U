@@ -46,7 +46,8 @@ public class HomeController {
         List<CarModel> carModels;
         //List<Offer> offers = offersService.getOffers();
         List<Offer> offers;
-        System.out.println("test");
+        
+        
 //        if(offerFilter.getManufacturerId() == null && offerFilter.getModelId() == null){
 //            offers = offersService.getOffers();
 //            carModels = null;
