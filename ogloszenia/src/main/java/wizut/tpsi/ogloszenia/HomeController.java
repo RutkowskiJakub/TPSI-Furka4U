@@ -133,4 +133,11 @@ public class HomeController {
         
         return "redirect:/offer/" + offer.getId();
     }
+    
+    @RequestMapping("/deleteoffer/{id}")
+    public String deleteOffer(Model model, @PathVariable("id") Integer id){
+        Offer offer = offersService.deleteOffer(id);
+        model.addAttribute("offer", offer);
+        return "deleteOffer";
+    }
 }

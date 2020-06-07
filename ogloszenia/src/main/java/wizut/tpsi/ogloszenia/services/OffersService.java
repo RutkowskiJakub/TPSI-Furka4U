@@ -111,6 +111,12 @@ public class OffersService {
         em.persist(offer);
         return offer;
     }
+    
+    public Offer deleteOffer(Integer id) {
+        Offer offer = em.find(Offer.class, id);
+        em.remove(offer);
+        return offer;
+    }
         
         
 }
